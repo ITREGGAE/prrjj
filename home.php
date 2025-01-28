@@ -2,7 +2,7 @@
 session_start();
 
 
-include("php/config.php");
+include("./php/config.php");
 if(!isset($_SESSION['valid'])){
     header("location: index.php");
 }
@@ -27,16 +27,16 @@ if(!isset($_SESSION['valid'])){
             <?php
             
             $id = $_SESSION['id'];
-            $query = mysqli_query($con,"SELECT*FROM users WHERE Id=$id");
+            $query = mysqli_query($con, "SELECT * FROM users WHERE id = $id");
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['username'];
-                $res_Email = $result['Email'];
+                $res_Email = $result['Email'];  
                 $res_Age = $result['Age'];
                 $res_id = $result['Id'];
             }
-            echo "<a href=edit.php?Id=$res_id'>Change Profile</a>"
+            echo "<a href='edit.php?Id=$res_id'>Change Profile</a>";
 
-            ?>     
+            ?>      
 
 
             
